@@ -1,4 +1,4 @@
-limport './board.css';
+import './board.css';
 import useStore from "../../hooks/useStore";
 import Crono from "./Crono";
 import Row from './Row';
