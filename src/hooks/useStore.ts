@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { minesWeeper } from "../assets/tableGenerator";
 
 type State = {
   difficulty: string,

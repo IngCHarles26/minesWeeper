@@ -23,7 +23,7 @@ export function validatePlay(
     boolTable[rowPlay][colPlay] = true;
     lose = true;
     
-    return { message, boolTable, flagsPosition, win, lose}
+    return { message, boolTable, flagsPosition, win, lose,minesPosition}
   }
   
   //click en una pista
