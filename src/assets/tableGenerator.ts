@@ -43,9 +43,9 @@ function genTable(
 
 export function minesWeeper(
   difficulty: 'easy' | 'medium' | 'hard' | 'custom',
-  row?:number,
-  col?:number,
-  mines?:number ){
+  row:number,
+  col:number,
+  mines:number ){
   
     const {min,max} = Math;
     const maxV = {row:20, col:40, mines:200};
@@ -66,6 +66,5 @@ export function minesWeeper(
       _mines = min(maxV.mines,max(_mines,minV.mines));
     }
   
-    // return {_row,_col,_mines}
     return genTable(_row,_col,_mines)
 }
