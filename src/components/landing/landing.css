@@ -1,0 +1,132 @@
+.Landing{
+  /* background-color: red; */
+  height: 100%;
+  font-family: 'Workbench',sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title-landing{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+
+  h1{
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+    letter-spacing: 1rem;
+  }
+}
+
+.main-landing{
+  display: flex;
+}
+
+.footer-landing{
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  p{
+    margin-bottom: 1rem;
+  }
+}
+
+.select-level{
+  display: flex;
+  gap: 2rem;
+  
+  button{
+    text-transform: uppercase;
+  }
+}
+
+.levelButton{
+  font-family: 'Teko',sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 35px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  cursor: pointer;
+
+  &::before{
+    margin-left: auto;
+  }
+
+  &::after, &::before{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    transition: 0.5s;
+  }
+
+  &:hover::after, &:hover::before{
+    width: 100%;
+  }
+}
+
+.custom-level{
+  padding: 1rem;
+  border-width: 5px;
+  border-color: #ffffff80;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  div{
+    display: flex;
+    gap: 1rem;
+
+    input{
+      padding: 0.5rem;
+      width: 4.5rem;
+      text-align: center;
+      border-radius: 0.5rem;
+      border-color: #00000050;
+      font-family: 'Teko',sans-serif;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.imageHero{
+  height: 10rem;
+  width:  10rem;
+  -webkit-animation: rotate-center 100s ease-in-out both infinite;
+  animation: rotate-center 100s ease-in-out both infinite;
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
