@@ -1,16 +1,17 @@
-import './board.css';
+limport './board.css';
 import useStore from "../../hooks/useStore";
 import Crono from "./Crono";
 import Row from './Row';
 
 
 function Board() {
-  const {table,visibility,mines,flags,win,lose,difficulty,setPage,setWin,setLose} = useStore(st=>st);
+  const {table,visibility,mines,flags,win,lose,difficulty,setPage,setWin,setLose,setFlags} = useStore(st=>st);
   
   const handleButton = ()=>{
     setPage(0);
     setWin(false);
     setLose(false);
+    setFlags([]);
   }
 
   return (
