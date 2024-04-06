@@ -12,6 +12,7 @@ type State = {
   visibility: boolean[][],
   win: boolean,
   lose: boolean,
+  count: number,
 }
 
 type Action ={
@@ -26,6 +27,8 @@ type Action ={
   setVisibility: (type:State['visibility'])=>void,
   setWin: (type:boolean)=>void,
   setLose: (type:boolean)=>void,
+  startCount: ()=>void,
+  resetCount: ()=>void,
 }
 
 const useStore = create<State & Action>((set)=>({
@@ -72,6 +75,14 @@ const useStore = create<State & Action>((set)=>({
   //__________win
   lose: false,
   setLose: (_lose)=>set(()=>({lose:_lose})),
+  
+  //__________count
+  count: 0,
+  startCount: ()=>{
+    setInterval(()=>{set((state)=>({count:state.count+1}))}
+    ,1000);
+  },
+  resetCount: ()=>set({count:0})
 
 
 }))

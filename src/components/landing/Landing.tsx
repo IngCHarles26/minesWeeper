@@ -16,7 +16,7 @@ const inputs = [
 
 export function Landing() {
   const [showWarning, setShowWarning] = useState(false);
-  const {setDifficulty,setCustomValues,customValues,setPage,setTable,setMines,setVisibility} = useStore(st=>st);
+  const {setDifficulty,setCustomValues,customValues,setPage,setTable,setMines,setVisibility,startCount} = useStore(st=>st);
 
 
   const handleDifficulty = (nameDiff:'easy'|'medium'|'hard')=>{
@@ -26,19 +26,21 @@ export function Landing() {
     setTable(board.table);
     setMines(board.minesPos);
     setVisibility(board.visibility);
+    startCount();
     setPage(1);
   };
-
+  
   const handleCustomDifficulty = ()=>{
     const validate = Object.values(customValues).every(el=>0<el);
     if(!validate) return setShowWarning(true)
-
+      
     setDifficulty('custom');
     const {rows,columns,mines} = customValues;
     const board = minesWeeper('custom',rows,columns,mines);
     setTable(board.table);
     setMines(board.minesPos);
     setVisibility(board.visibility);
+    startCount();
     setPage(1);
 
   };
@@ -98,7 +100,15 @@ export function Landing() {
       <div className='footer-landing'>
         <p>CarlosCo_Dev</p>
         <p>Special thanks to: Curt Johnson and Robert Donner</p>
+        <br />
+        <br />
+        <br />
+        <p>CONSIDERATIONS:</p>
+        <p>Min values: row_5  col_5 mines_5</p>
+        <p>Max values: row_20  col_40 mines_200</p>
+        <p>Max mines: 40%</p>
       </div>
+
 
     </div>
   );

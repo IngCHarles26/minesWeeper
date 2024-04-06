@@ -2,16 +2,30 @@ import './board.css';
 import useStore from "../../hooks/useStore";
 import Crono from "./Crono";
 import Row from './Row';
+import { minesWeeper } from '../../assets/tableGenerator';
 
 
 function Board() {
-  const {table,visibility,mines,flags,win,lose,difficulty,setPage,setWin,setLose,setFlags} = useStore(st=>st);
+  const {table,visibility,mines,flags,win,lose,difficulty,customValues,setPage,setWin,setLose,setFlags,setTable,setMines,setVisibility,resetCount} = useStore(st=>st);
   
   const handleButton = ()=>{
     setPage(0);
     setWin(false);
     setLose(false);
     setFlags([]);
+  }
+
+  const handleReset = ()=>{
+    setWin(false);
+    setLose(false);
+    setFlags([]);
+    const {rows:_rows,columns:_columns,mines:_mines} = customValues;
+    //@ts-ignore
+    const newTable = minesWeeper(difficulty,_rows,_columns,_mines);
+    setTable(newTable.table);
+    setMines(newTable.minesPos);
+    setVisibility(newTable.visibility);
+    resetCount();
   }
 
   return (
@@ -42,6 +56,12 @@ function Board() {
               ))
           }
         </div>
+      </div>
+
+      <div className='message-end-game'>
+        {win && <p>Congratulations</p>}
+        {lose && <p>Ups</p>}
+        {(win || lose) && <button onClick={()=>handleReset()}>RESET</button>}
       </div>
 
     </div>
